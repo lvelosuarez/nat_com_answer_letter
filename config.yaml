@@ -1,0 +1,18 @@
+# This file should contain everything to configure the workflow on a global scale.
+# In case of sample based data, it should be complemented by a samples.tsv file that contains
+# one row per sample.
+
+sampletable: "config.tsv" ## 
+path: "/home/lvelo/working_directory/microbiology/nat_comm_code/" ## folder that will contain the results
+threads: 20
+quality: 20
+maxEE:
+  - 2
+  - 2
+learn_nbases: 100e6
+chimera_method: "pooled"
+max_length_variation: 30     # how many nucleotide can a sequence be longer or shorter than the mode sequence length
+HUMAN: "/PUBLIC_DATA/kraken2_databases/HUMAN"
+silva: "/home/lvelo/working_directory/tax/silva_nr_v138_train_set.fa.gz"
+silva_species: "/home/lvelo/working_directory/tax/silva_species_assignment_v138.fa.gz"
+GTDB: "/home/lvelo/working_directory/tax/IDTaxa/GTDB_r95-mod_August2020.rdata"
