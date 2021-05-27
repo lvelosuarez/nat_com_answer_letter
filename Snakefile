@@ -78,7 +78,7 @@ rule kraken2:
     output:
         k1 = temp(config["path"] + "03_kraken2/{sample}_1.fq"),
         k2 = temp(config["path"] + "03_kraken2/{sample}_2.fq"),
-        report = temp(config["path"] +"03_kraken2/{sample}.krak")
+        report = config["path"] +"03_kraken2/{sample}.krak"
     params:
         ref = config["HUMAN"],
     threads:
@@ -97,7 +97,7 @@ rule countHUMAN:
         awk = """ awk '/U/{print FILENAME"\t"$1"\t"$2}' """
     shell:
         """
-         cat {input.report} | {params.awk} > {output.human}
+         {params.awk} {input.report} > {output.human}
         """
 
 rule fq_gz:
